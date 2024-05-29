@@ -1,7 +1,7 @@
 DEVICE_PATH := device/samsung/a55x
 
 # API levels
-PRODUCT_SHIPPING_API_LEVEL := 34
+PRODUCT_SHIPPING_API_LEVEL := 32
 
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
