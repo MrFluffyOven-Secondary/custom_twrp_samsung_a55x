@@ -6,7 +6,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from essi device
-$(call inherit-product, device/samsung/a55/device.mk)
+$(call inherit-product, device/samsung/a55x/device.mk)
 
 PRODUCT_DEVICE := a55x
 PRODUCT_NAME := twrp_a55x
