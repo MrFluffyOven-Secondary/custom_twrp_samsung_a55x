@@ -1,7 +1,7 @@
 DEVICE_PATH := device/samsung/a55x
 
 # A/B
-AB_OTA_UPDATER := true
+AB_OTA_UPDATER := false
 AB_OTA_PARTITIONS +=
 BOARD_USES_RECOVERY_AS_BOOT := false
 
