@@ -2,7 +2,7 @@ DEVICE_PATH := device/samsung/a55x
 
 # A/B
 AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += system vendor product system_ext system_dlkm vendor_dlkm
+AB_OTA_PARTITIONS += system vendor product system_ext vendor_dlkm
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Allow for building with minimal manifest
