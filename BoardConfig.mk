@@ -1,8 +1,8 @@
 DEVICE_PATH := device/samsung/a55x
 
 # A/B
-AB_OTA_UPDATER := false
-AB_OTA_PARTITIONS +=
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS += system vendor product system_ext system_dlkm vendor_dlkm
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Allow for building with minimal manifest
@@ -75,7 +75,7 @@ BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 16777216
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST :=
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system system vendor product system_ext system_dlkm vendor_dlkm
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 BOARD_SUPPRESS_SECURE_ERASE := true
 
