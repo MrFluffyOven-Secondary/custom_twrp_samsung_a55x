@@ -14,8 +14,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl \
     android.hardware.boot@1.2-impl.recovery \
-    android.hardware.boot@1.2-service
-    bootctrl.$(PRODUCT_PLATFORM)
+    android.hardware.boot@1.2-service \
+    bootctrl.$(PRODUCT_PLATFORM) \
     bootctrl.$(PRODUCT_PLATFORM).recovery
 
 # Update engine
