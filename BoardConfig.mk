@@ -15,7 +15,6 @@ AB_OTA_PARTITIONS += \
     vendor_dlkm \
     vendor_boot \
     system_dlkm
-BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 BUILDING_VENDOR_BOOT_IMAGE := true
 
