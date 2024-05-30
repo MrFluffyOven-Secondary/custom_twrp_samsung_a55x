@@ -2,8 +2,24 @@ DEVICE_PATH := device/samsung/a55x
 
 # A/B
 AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += system vendor product system_ext system_dlkm vendor_dlkm
+AB_OTA_PARTITIONS += \
+    vendor \
+    init_boot \
+    vbmeta \
+    odm \
+    system \
+    vbmeta_system \
+    dtbo \
+    boot \
+    product \
+    vendor_dlkm \
+    vendor_boot \
+    system_dlkm
 BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_NO_RECOVERY := true
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := a55x
 
 # Allow for building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -41,18 +57,13 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_USES_VULKAN := true
 
 # Kernel
+TARGET_NO_KERNEL := true
 BOARD_BOOTIMG_HEADER_VERSION := 4
-BOARD_KERNEL_BASE := 0x10000a55
 BOARD_KERNEL_CMDLINE := bootconfig loop.max_part=7
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-BOARD_KERNEL_SEPARATED_DTBO := true
-
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 
 TARGET_KERNEL_CONFIG := a55x_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/a55x
@@ -61,7 +72,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/a55x
 #BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 #BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
-BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := false
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -71,8 +82,14 @@ BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 16777216
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system system vendor product system_ext vendor_dlkm
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+    vendor \
+    odm \
+    system \
+    product \
+    vendor_dlkm
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
+
 BOARD_SUPPRESS_SECURE_ERASE := true
 
 BOARD_USES_METADATA_PARTITION := true
@@ -121,8 +138,10 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Security patch level
-PLATFORM_VERSION := 14
+PLATFORM_VERSION := 16.1.0
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
+PLATFORM_SECURITY_PATCH := 2099-12-31
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

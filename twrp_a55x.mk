@@ -11,6 +11,9 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 # Inherit from essi device
 $(call inherit-product, device/samsung/a55x/device.mk)
 
+# Product Name
+PRODUCT_RELEASE_NAME := a55x
+
 PRODUCT_DEVICE := a55x
 PRODUCT_NAME := twrp_a55x
 PRODUCT_BRAND := samsung
